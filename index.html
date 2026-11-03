@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#142323"><title>看懂菜單 · Camera Demo</title><link rel="stylesheet" href="styles.css"><script src="core.js" defer></script><script src="app.js" defer></script></head>
+<body>
+<header><div><span class="eyebrow">AI-MENU-COMPANION / v0.1</span><h1>看懂菜單，安心選餐</h1></div><span class="demo">Demo 資料</span></header>
+<section class="recommend" aria-label="模擬餐廳推薦"><button id="recommendToggle" aria-expanded="true" aria-controls="recommendBody">示範食堂 · 模擬推薦 <span id="recommendArrow">收合 −</span></button><div id="recommendBody">推薦：親子丼 <small>固定 Demo 理由：以雞肉、蛋與米飯為主，方便體驗選餐。非 AI 推薦、未辨識餐廳。</small></div></section>
+<main>
+<div class="camera-tools"><p id="cameraStatus" role="status">正在準備相機…</p><button id="cameraStart">啟用／重試相機</button><button id="cameraStop">停止相機</button></div>
+<p class="instruction">請將<a href="test-menu.html" target="_blank" rel="noopener">指定測試菜單</a>完整對齊框線。長按右側圖片查看，放開即返回。</p>
+<section id="stage" class="stage" aria-label="真實相機與模擬翻譯">
+<video id="preview" autoplay muted playsinline aria-label="真實相機預覽"></video><div id="cameraEmpty">相機尚未啟動<br><small>此處不以靜態圖代替相機</small></div>
+<div id="overlay"><div class="frame-label">模擬定位 · 無 OCR Tracking</div><div class="menu-frame" id="menuFrame"><div class="align-label">對齊指定測試菜單外框</div><div id="translations"></div></div><div id="dishControls"></div></div>
+</section>
+<section class="simulation"><div><strong>模擬 Overlay 更新</strong><p id="overlayStatus" role="status">等待更新</p></div><button id="simulationToggle" aria-pressed="true">暫停更新</button><small>每 2 秒模擬文字、位置、排序與布局變動。長按期間凍結；放開後只接受新世代結果。</small></section>
+<section class="order"><h2>我的點餐清單 <span id="orderCount">0</span></h2><p class="muted">保留原菜名與原始單價；不會送出訂單。</p><div id="orderList" aria-live="polite"></div></section>
+<details class="notes"><summary>圖片來源與 Demo 限制</summary><p>本店實拍與同款料理參考圖尚未提供可核對素材，因此顯示缺圖占位，並非照片。AI 生成示意圖為本專案 AI 編寫的 SVG 插畫，不代表實際出餐。三類來源標示皆會在縮圖與資訊卡一致顯示。</p><p>只有指定菜單與對齊條件可測固定定位。移動手機不會追蹤菜單；不支援真正 OCR、翻譯或 AI 推薦。食材內容僅供測試，不可用於過敏原判斷。重新整理會清除點餐數量。</p></details>
+</main>
+<aside id="dishCard" class="dish-card" hidden aria-label="長按料理資訊卡"><div id="cardContent"></div><p>持續按住以查看 · 放開立即返回</p></aside>
+<footer>相機影像不儲存、不上傳</footer>
+</body></html>
